@@ -1,0 +1,13 @@
+.git
+.env
+config
+data
+*.zip
+*.db
+*.db-*
+*.crt
+*.key
+__pycache__
+.pytest_cache
+.venv
+venv

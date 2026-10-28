@@ -1,0 +1,17 @@
+# Runtime credentials / certificates / VPN access keys
+.env
+config/
+data/
+*.crt
+*.key
+*.pem
+*.sqlite3
+*.db
+*.db-*
+*.yml.bak
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.dist/
