@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 umask 077
 
-REPO_SLUG="PavelShestakov/outline-wss"  # Set after publishing the repository.
+REPO_SLUG="PavelShestakov/outline-wss"
 BRANCH="main"
 TARGET_DIR="/opt/outline-wss-docker"
 
@@ -124,7 +124,7 @@ fi
 msg 'Acquiring project sources'
 # Local checkout: bash /path/to/outline-wss/install.sh
 SOURCE_DIR=''
-if [[ "${BASH_SOURCE[0]:-}" != 'bash' && "${BASH_SOURCE[0]:-}" != '-c' && -f "$(dirname -- "${BASH_SOURCE[0]}")/compose.yaml" ]]; then
+if [[ -n "${BASH_SOURCE[0]:-}" && -f "$(dirname -- "${BASH_SOURCE[0]}")/compose.yaml" ]]; then
   SOURCE_DIR="$(cd "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 fi
 mkdir -p "$TARGET_DIR" "$TARGET_DIR/config/tls" "$TARGET_DIR/data/keys" "$TARGET_DIR/data/manager"
