@@ -133,7 +133,7 @@ if [[ -n "$SOURCE_DIR" ]]; then
   [[ "$SOURCE_DIR" != "$TARGET_DIR" ]] || err 'Run installer from a separate checkout, not target directory'
   cp -a "$SOURCE_DIR/app" "$SOURCE_DIR/Dockerfile" "$SOURCE_DIR/requirements.txt" "$SOURCE_DIR/compose.yaml" "$TARGET_DIR/"
 else
-  [[ "$REPO_SLUG" != PavelShestakov/* ]] || err 'Repository owner has not been set in published install.sh'
+  [[ "$REPO_SLUG" != *"YOUR_GITHUB_USERNAME"* ]] || err 'Repository owner has not been set in published install.sh'
   archive="$(mktemp)"
   trap 'rm -f "${archive:-}"' EXIT
   curl -fsSL --retry 3 "https://github.com/${REPO_SLUG}/archive/refs/heads/${BRANCH}.tar.gz" -o "$archive"
